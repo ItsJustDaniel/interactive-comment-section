@@ -1,0 +1,218 @@
+/* # Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Moderate blue: hsl(238, 40%, 52%)
+- Soft Red: hsl(358, 79%, 66%)
+- Light grayish blue: hsl(239, 57%, 85%)
+- Pale red: hsl(357, 100%, 86%)
+
+### Neutral
+
+- Dark blue: hsl(212, 24%, 26%)
+- Grayish Blue: hsl(211, 10%, 45%)
+- Light gray: hsl(223, 19%, 93%)
+- Very light gray: hsl(228, 33%, 97%)
+- White: hsl(0, 0%, 100%)
+
+## Typography
+
+### Body Copy
+
+- Font size (paragraph): 16px
+
+### Font
+
+- Family: [Rubik](https://fonts.google.com/specimen/Rubik)
+- Weights: 400, 500, 700 */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  background-color: hsl(228, 33%, 97%);
+}
+
+.comments-container {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.comment-card {
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  width: 90%;
+  height: 100%;
+  min-height: 230px;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "content content content"
+    "score . buttons";
+  grid-template-rows: 20px 1fr 30px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  grid-area: header;
+}
+
+.comment-header > small {
+  color: hsl(211, 10%, 45%);
+}
+
+.profile-image {
+  width: 30px;
+}
+
+.profile-you {
+  background-color: hsl(238, 40%, 52%);
+  color: white;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.1rem;
+  font-size: 0.5rem;
+}
+
+.comment-header > * {
+  margin-right: 1rem;
+}
+
+.comment-content {
+  margin: 1rem 0;
+  grid-area: content;
+}
+
+.comment-content-replyTo,
+.score,
+.reply-button,
+.edit_post-text {
+  color: hsl(238, 40%, 52%);
+  font-weight: bold;
+}
+
+.comment-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.score__board {
+  display: flex;
+  background-color: hsl(223, 19%, 93%);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 80px;
+  grid-area: score;
+}
+
+.score__board > *:not(:first-child) {
+  margin-left: 0.5rem;
+}
+
+.button {
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+}
+
+.buttons {
+  grid-area: buttons;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.delete_post-text {
+  color: hsl(358, 79%, 66%);
+}
+
+.reply-container {
+  border-left: 3px hsl(223, 19%, 93%) solid;
+  width: 90%;
+  min-width: 250px;
+  margin: 1rem 0;
+}
+
+.reply-container > :last-child {
+  margin-bottom: 0;
+}
+
+.reply-card {
+  margin-top: 0;
+}
+
+.addComments-container {
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  display: grid;
+  grid-template-areas:
+    "textarea textarea"
+    "profile-image send-button";
+  gap: 1rem;
+}
+
+.addComment {
+  height: 100px;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: hsl(223, 19%, 93%) 1px solid;
+  padding: 0.5rem;
+  grid-area: textarea;
+  margin: 1rem 0;
+}
+
+.addComment-profile {
+  grid-row-start: 1;
+  grid-area: profile-image;
+}
+
+.addComment-button {
+  grid-area: send-button;
+  background-color: hsl(238, 40%, 52%);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  width: 80px;
+  justify-self: flex-end;
+  padding: 0.5rem;
+  margin-left: 1rem;
+}
+
+.addComments-change {
+  width: 90%;
+  display: block;
+}
+
+.cancel-button {
+  background-color: hsl(358, 79%, 66%);
+}
+
+.score-button {
+  cursor: pointer;
+}
+
+.store-button-active {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(28%) saturate(1687%)
+    hue-rotate(204deg) brightness(81%) contrast(88%);
+}

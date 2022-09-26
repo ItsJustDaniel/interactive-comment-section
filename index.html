@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive comments section</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Pull dynamic content from the data.json file -->
+    <div class="comments-container" id="comments-container"></div>
+    <div class="addComments-container">
+      <img
+        src="./images/avatars/image-juliusomo.png"
+        class="addComment-profile profile-image"
+      />
+      <textarea
+        class="addComment"
+        placeholder="Add a comment..."
+        id="addComment-input"
+      ></textarea>
+      <button class="send-button addComment-button" id="send-button">
+        SEND
+      </button>
+    </div>
+
+    <script type="module" src="./js/index.js"></script>
+  </body>
+</html>
