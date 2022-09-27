@@ -15,6 +15,8 @@ const text = document.getElementById("addComment-input");
 
 //fetch data.json()
 
+console.log("hello world");
+
 const main = async () => {
   //get data
   const data = await fetchData();
