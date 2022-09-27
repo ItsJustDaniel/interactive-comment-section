@@ -4,7 +4,7 @@ export async function fetchData() {
 
   if (!data) {
     data = await fetch(
-      "https://itsjustdaniel.github.io/interactive-comments-section-main/data.json"
+      "https://itsjustdaniel.github.io/interactive-comment-section-main/data.json"
     );
 
     const res = await data.json();
