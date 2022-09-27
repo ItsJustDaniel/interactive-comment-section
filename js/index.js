@@ -19,7 +19,9 @@ console.log("hello world");
 
 const main = async () => {
   //get data
+  console.log("fetching data");
   const data = await fetchData();
+  console.log("data fetched");
   let comments = data.comments;
   let currentUser = data.currentUser;
   console.log(currentUser);
@@ -211,3 +213,4 @@ const main = async () => {
 };
 
 main();
+console.log;

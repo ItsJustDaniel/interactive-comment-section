@@ -1,11 +1,10 @@
 export async function fetchData() {
-  console.log("parsing");
+  console.log("fetching data");
   let data = JSON.parse(localStorage.getItem("data"));
-  console.log("parse completed");
 
   if (!data) {
     data = await fetch(
-      "http://127.0.0.1:5500/interactive-comments-section-main/data.json"
+      "https://itsjustdaniel.github.io/interactive-comments-section-main/data.json"
     );
 
     const res = await data.json();
@@ -14,5 +13,8 @@ export async function fetchData() {
 
     return res;
   }
+
+  console.log("data fetched");
+
   return data;
 }
