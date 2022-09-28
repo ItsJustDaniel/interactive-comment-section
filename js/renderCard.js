@@ -8,6 +8,7 @@ export const renderCard = (comment, currentUser, className = "normal") => {
   const commentCard = document.createElement("div");
   commentCard.classList.add("comment-card", className);
   console.log(comment);
+  console.log(comment.replyingTo);
   commentCard.innerHTML = `
   <div class="comment-header">
       <img src=${
@@ -101,7 +102,10 @@ export const renderCard = (comment, currentUser, className = "normal") => {
           replyTo: comment.replyingTo,
           content: comment.content,
           replies: comment.replies,
-          user: { image: comment.user.image, username: comment.user.username },
+          user: {
+            image: comment.user.image,
+            username: comment.user.username,
+          },
           id: comment.id,
           score: comment.score,
         });

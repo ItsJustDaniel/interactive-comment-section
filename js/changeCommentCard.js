@@ -38,9 +38,9 @@ export const changeCommentCard = (isReply, content) => {
       placeholder="Add a comment..."
       id="addComment-input"
     >${
-      isReply
-        ? `<span class="comment-content-replyTo">@${content}</span>`
-        : `<span class="comment-content-replyTo">@${content.replyTo}</span> ${content.content}`
+      content.replyTo
+        ? `<span class="comment-content-replyTo">@${content.replyTo}</span> ${content.content}`
+        : `${content.content}`
     }
     </div>
     <div class="buttons">
@@ -158,49 +158,46 @@ export const changeCommentCard = (isReply, content) => {
         commentCard.remove();
       });
   } else {
-    const isReplyingTo = commentCard.children[1].getElementsByClassName(
-      "comment-content-replyTo"
-    )[0];
-
-    const replyIndex = isReplyingTo
-      ? commentCard.innerText.split(" ").indexOf(isReplyingTo.innerText)
-      : -1;
-    console.log(replyIndex);
-    const contentText = isReplyingTo
-      ? commentCard.children[1].innerText
-          .split(" ")
-          .filter((e, i) => i !== replyIndex)
-          .join(" ")
-      : commentCard.children[1].innerText;
-    console.log(contentText);
-
-    console.log("edit");
-    const commentData = {
-      content: contentText,
-      createdAt: "now",
-      id:
-        data.comments.reduce((a, b) => a + b.replies.length, 0) +
-        data.comments.length +
-        1,
-      replies: content.replies,
-      replyingTo: isReplyingTo ? isReplyingTo.innerText.slice(1) : "",
-      score: 0,
-      user: {
-        image: {
-          png: "./images/avatars/image-juliusomo.png",
-          webp: "./images/avatars/image-juliusomo.webp",
-        },
-        username: "juliusomo",
-      },
-    };
     commentCard
       .querySelector("#send-button-edit")
       .addEventListener("click", () => {
-        const editedCard = renderCard(
-          commentData,
-          currentUser,
-          isReply && "reply-card"
-        );
+        const isReplyingTo = commentCard.children[1].getElementsByClassName(
+          "comment-content-replyTo"
+        )[0];
+
+        const replyIndex = isReplyingTo
+          ? commentCard.innerText.split(" ").indexOf(isReplyingTo.innerText)
+          : -1;
+        console.log(replyIndex);
+        const contentText = isReplyingTo
+          ? commentCard.children[1].innerText
+              .split(" ")
+              .filter((e, i) => i !== replyIndex)
+              .join(" ")
+          : commentCard.children[1].innerText;
+        console.log(contentText);
+
+        console.log("edit");
+        const commentData = {
+          content: contentText,
+          createdAt: "now",
+          id:
+            data.comments.reduce((a, b) => a + b.replies.length, 0) +
+            data.comments.length +
+            1,
+          replies: content.replies,
+          replyingTo: isReplyingTo ? isReplyingTo.innerText.slice(1) : "",
+          score: 0,
+          user: {
+            image: {
+              png: "./images/avatars/image-juliusomo.png",
+              webp: "./images/avatars/image-juliusomo.webp",
+            },
+            username: "juliusomo",
+          },
+        };
+
+        const editedCard = renderCard(commentData, currentUser);
 
         insertAfter(editedCard, commentCard);
         console.log(content);
@@ -229,11 +226,43 @@ export const changeCommentCard = (isReply, content) => {
     commentCard
       .querySelector("#cancel-button")
       .addEventListener("click", (e) => {
-        const editedCard = renderCard(
-          commentData,
-          currentUser,
-          isReply && "reply-card"
-        );
+        const isReplyingTo = commentCard.children[1].getElementsByClassName(
+          "comment-content-replyTo"
+        )[0];
+
+        const replyIndex = isReplyingTo
+          ? commentCard.innerText.split(" ").indexOf(isReplyingTo.innerText)
+          : -1;
+        console.log(replyIndex);
+        const contentText = isReplyingTo
+          ? commentCard.children[1].innerText
+              .split(" ")
+              .filter((e, i) => i !== replyIndex)
+              .join(" ")
+          : commentCard.children[1].innerText;
+        console.log(contentText);
+
+        console.log("edit");
+        const commentData = {
+          content: contentText,
+          createdAt: "now",
+          id:
+            data.comments.reduce((a, b) => a + b.replies.length, 0) +
+            data.comments.length +
+            1,
+          replies: content.replies,
+          replyingTo: isReplyingTo ? isReplyingTo.innerText.slice(1) : "",
+          score: 0,
+          user: {
+            image: {
+              png: "./images/avatars/image-juliusomo.png",
+              webp: "./images/avatars/image-juliusomo.webp",
+            },
+            username: "juliusomo",
+          },
+        };
+
+        const editedCard = renderCard(commentData, currentUser);
 
         insertAfter(editedCard, commentCard);
         commentCard.remove();
