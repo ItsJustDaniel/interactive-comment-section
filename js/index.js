@@ -111,7 +111,11 @@ const main = async () => {
 
       const parentUser = clicked.children[0].children[1].innerHTML;
       console.log(parentUser);
-      const comment = changeCommentCard(true, parentUser);
+
+      const comment = changeCommentCard(true, {
+        replyTo: parentUser,
+        content: "",
+      });
 
       insertAfter(comment, clicked);
 

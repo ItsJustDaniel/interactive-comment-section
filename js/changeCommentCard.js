@@ -9,6 +9,7 @@ import { insertAfter } from "./insertAfter.js";
 //get all usernames
 
 export const changeCommentCard = (isReply, content) => {
+  console.log(content);
   const data = fetchDataSync();
   const comments = data.comments;
   const currentUser = data.currentUser;
@@ -63,9 +64,8 @@ export const changeCommentCard = (isReply, content) => {
     e.target.innerHTML = replyingTo(e.target.innerText, users);
     setCaret(e.target, carotPos);
   });
-
+  console.log(isReply);
   if (isReply) {
-    console.log(commentCard);
     commentCard
       .querySelector("#send-button-reply")
       .addEventListener("click", (e) => {
@@ -96,6 +96,8 @@ export const changeCommentCard = (isReply, content) => {
         console.log(data.comments);
         console.log(data.comments.reduce((a, b) => a + b.replies.length, 0));
 
+        console.log(content);
+        console.log(isReplyingTo ? isReplyingTo.innerText.slice(1) : "");
         //object for rendering card
         const commentData = {
           content: content,
